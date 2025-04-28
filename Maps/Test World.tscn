@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=4 uid="uid://cn4rpfb8u3a2f"]
+
+[ext_resource type="PackedScene" uid="uid://ctim5x1x3847q" path="res://Characters/simple_knight_v1_0.tscn" id="1_v7r2e"]
+[ext_resource type="Texture2D" uid="uid://dfqvfun1okvup" path="res://Assets/terrain_tilemap.svg" id="2_t8hjc"]
+[ext_resource type="PackedScene" uid="uid://dee3kvnn3c8w5" path="res://Assets/chests.tscn" id="3_t8hjc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8hjc"]
+resource_name = "Stone Bricks"
+texture = ExtResource("2_t8hjc")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u05g2"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_t8hjc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7r2e"]
+size = Vector2(543.5, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8hjc"]
+size = Vector2(31, 192.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsskl"]
+size = Vector2(95, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gsskl"]
+texture = ExtResource("2_t8hjc")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/modulate = Color(0.605274, 0.605274, 0.605274, 1)
+1:0/0 = 0
+1:0/0/modulate = Color(0.603922, 0.603922, 0.603922, 1)
+2:0/0 = 0
+3:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_t86qq"]
+sources/1 = SubResource("TileSetAtlasSource_gsskl")
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="Knight" parent="." instance=ExtResource("1_v7r2e")]
+visibility_layer = 2
+position = Vector2(294, 235)
+
+[node name="Stone Bricks" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAOAAYAAAAAAAAAAAANAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_u05g2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Stone Bricks"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(272.25, 304)
+shape = SubResource("RectangleShape2D_v7r2e")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(273, 81)
+shape = SubResource("RectangleShape2D_v7r2e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(16.5, 191.25)
+shape = SubResource("RectangleShape2D_t8hjc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(528, 194)
+shape = SubResource("RectangleShape2D_t8hjc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(431.5, 208)
+shape = SubResource("RectangleShape2D_gsskl")
+
+[node name="Pillars, background" type="TileMapLayer" parent="Stone Bricks"]
+show_behind_parent = true
+tile_map_data = PackedByteArray("AAACABEAAQAAAAAAAAAEABEAAQAAAAAAAAAGABEAAQAAAAAAAAAIABEAAQAAAAAAAAAKABEAAQAAAAAAAAAKAA8AAQAAAAAAAAAIAA8AAQAAAAAAAAAGAA8AAQAAAAAAAAAEAA8AAQAAAAAAAAACAA8AAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_t86qq")
+
+[node name="Chest1" parent="Stone Bricks" instance=ExtResource("3_t8hjc")]
+position = Vector2(191, 263)
