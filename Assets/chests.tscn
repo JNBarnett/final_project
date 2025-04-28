@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dee3kvnn3c8w5"]
+
+[ext_resource type="Texture2D" uid="uid://dfqvfun1okvup" path="res://Assets/terrain_tilemap.svg" id="1_v0bg8"]
+[ext_resource type="Script" uid="uid://cil7l0wcdgtho" path="res://Assets/Chest.gd" id="2_187mn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_shcax"]
+resource_name = "Loot"
+texture = ExtResource("1_v0bg8")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(32, 32)
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uts2t"]
+sources/0 = SubResource("TileSetAtlasSource_shcax")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p008t"]
+size = Vector2(31, 32)
+
+[node name="Chests" type="TileMapLayer"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_uts2t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("2_187mn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8.5, 8)
+shape = SubResource("RectangleShape2D_p008t")
