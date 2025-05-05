@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://dki66y2cyxmdk"]
+[gd_scene load_steps=33 format=4 uid="uid://dki66y2cyxmdk"]
 
 [ext_resource type="PackedScene" uid="uid://ctim5x1x3847q" path="res://Characters/simple_knight_v1_0.tscn" id="1_nev7r"]
 [ext_resource type="Texture2D" uid="uid://dfqvfun1okvup" path="res://Assets/terrain_tilemap.svg" id="2_iffyg"]
+[ext_resource type="PackedScene" uid="uid://du6g735lsqcvf" path="res://Characters/asylum_demon.tscn" id="3_ihryv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihryv"]
 resource_name = "Stone Bricks"
@@ -25,16 +26,70 @@ sources/0 = SubResource("TileSetAtlasSource_ihryv")
 size = Vector2(415, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihryv"]
-size = Vector2(31, 223)
+size = Vector2(31, 452)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3mjm"]
 size = Vector2(543, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quljh"]
-size = Vector2(159.5, 34)
+size = Vector2(285.75, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8142a"]
-size = Vector2(33, 97.5)
+size = Vector2(33, 289.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcwe5"]
+size = Vector2(45.9619, 312.188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hmvi"]
+size = Vector2(245, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02oal"]
+size = Vector2(129, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlt8x"]
+size = Vector2(353, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xlyx"]
+size = Vector2(32, 284)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_autk6"]
+size = Vector2(507, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6effe"]
+size = Vector2(1150, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnaas"]
+size = Vector2(33, 289.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbl1"]
+size = Vector2(1247.5, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbq81"]
+size = Vector2(686.926, 42.5267)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iusnb"]
+size = Vector2(312, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlt01"]
+size = Vector2(222.739, 43.2341)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7mke"]
+size = Vector2(766.5, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72mod"]
+size = Vector2(792.5, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp0m5"]
+size = Vector2(40.4053, 166.643)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2scj"]
+size = Vector2(130, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y487"]
+size = Vector2(34.5, 162)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mucsp"]
+size = Vector2(1346.5, 34)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quljh"]
 texture = ExtResource("2_iffyg")
@@ -54,23 +109,27 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_8142a"]
 sources/1 = SubResource("TileSetAtlasSource_quljh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hq016"]
+size = Vector2(46, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y14ic"]
+size = Vector2(97, 32)
+
 [node name="UndeadAsylum" type="Node2D"]
 
-[node name="Knight" parent="." instance=ExtResource("1_nev7r")]
-position = Vector2(103, 167)
-
 [node name="Stone Bricks" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_p3mjm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Stone Bricks"]
+top_level = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
-position = Vector2(208.5, 240)
+position = Vector2(215, 431)
 shape = SubResource("RectangleShape2D_iffyg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
-position = Vector2(16.5, 113.5)
+position = Vector2(16.5, 228)
 shape = SubResource("RectangleShape2D_ihryv")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
@@ -78,13 +137,210 @@ position = Vector2(304.5, 15)
 shape = SubResource("RectangleShape2D_p3mjm")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
-position = Vector2(496.25, 145)
+position = Vector2(561.125, 144)
 shape = SubResource("RectangleShape2D_quljh")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
-position = Vector2(400, 176.25)
+position = Vector2(400, 272.875)
 shape = SubResource("RectangleShape2D_8142a")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(684, -109.5)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_bcwe5")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(801, 32)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_bcwe5")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(901.5, -208.5)
+shape = SubResource("RectangleShape2D_5hmvi")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(960.5, -79)
+shape = SubResource("RectangleShape2D_02oal")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(1167.5, -48)
+shape = SubResource("RectangleShape2D_xlt8x")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(1008, -366)
+shape = SubResource("RectangleShape2D_2xlyx")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(2799, -623)
+shape = SubResource("RectangleShape2D_2xlyx")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(1247.5, -497.5)
+shape = SubResource("RectangleShape2D_autk6")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(1758, -753)
+shape = SubResource("RectangleShape2D_autk6")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(1888, -368)
+shape = SubResource("RectangleShape2D_6effe")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(1329.5, -210.25)
+shape = SubResource("RectangleShape2D_mnaas")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(1490, -624)
+shape = SubResource("RectangleShape2D_mnaas")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(2031, -627)
+shape = SubResource("RectangleShape2D_mnaas")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(3760, -994)
+shape = SubResource("RectangleShape2D_mnaas")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(3760, -994)
+shape = SubResource("RectangleShape2D_mnaas")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(3183.25, -368)
+shape = SubResource("RectangleShape2D_6xbl1")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(3233.1, -607.171)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_xbq81")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(3617, -848)
+shape = SubResource("RectangleShape2D_iusnb")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(2113.96, -801.535)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_jlt01")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(3003, -1088)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_jlt01")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(2784.75, -880.5)
+shape = SubResource("RectangleShape2D_g7mke")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(3375.25, -1103.5)
+shape = SubResource("RectangleShape2D_72mod")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(2543, -1009)
+shape = SubResource("RectangleShape2D_72mod")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(2739.8, -811.632)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_jp0m5")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(2241, -929)
+shape = SubResource("RectangleShape2D_v2scj")
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(2448.25, -272)
+shape = SubResource("RectangleShape2D_5y487")
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="Stone Bricks/StaticBody2D"]
+position = Vector2(3135.75, -205)
+shape = SubResource("RectangleShape2D_mucsp")
 
 [node name="Pillars, background" type="TileMapLayer" parent="Stone Bricks"]
 show_behind_parent = true
 tile_set = SubResource("TileSet_8142a")
+
+[node name="Area2D" type="Area2D" parent="Stone Bricks"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone Bricks/Area2D"]
+position = Vector2(3785, -287.5)
+shape = SubResource("RectangleShape2D_hq016")
+debug_color = Color(0.655811, 0.516344, 0.0456609, 0.42)
+
+[node name="Debug_text" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Debug_text"]
+offset_left = 124.0
+offset_top = 349.0
+offset_right = 281.0
+offset_bottom = 389.0
+text = "Cell key drops here"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Debug_text"]
+offset_left = 1128.0
+offset_top = -105.0
+offset_right = 1247.0
+offset_bottom = -65.0
+text = "Pool of water"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Debug_text"]
+offset_left = 1677.0
+offset_top = -442.0
+offset_right = 1851.0
+offset_bottom = -402.0
+text = "Bonfire (Checkpoint)"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Debug_text"]
+offset_left = 3519.0
+offset_top = -917.0
+offset_right = 3693.0
+offset_bottom = -877.0
+text = "Bonfire (Checkpoint)"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Debug_text"]
+offset_left = 2465.0
+offset_top = -350.0
+offset_right = 2590.0
+offset_bottom = -273.0
+text = "Floor open after defeating Stray Demon"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Debug_text"]
+offset_left = 2872.0
+offset_top = -949.0
+offset_right = 3106.0
+offset_bottom = -909.0
+text = "Oscar gives healing flasks"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Debug_text"]
+offset_left = 2310.0
+offset_top = -902.0
+offset_right = 2436.0
+offset_bottom = -831.0
+text = "Drop down,
+defeat demon"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Debug_text"]
+offset_left = 3696.0
+offset_top = -312.0
+offset_right = 3788.0
+offset_bottom = -272.0
+text = "Level Exit"
+
+[node name="AsylumDemon" parent="." instance=ExtResource("3_ihryv")]
+position = Vector2(2368, -468)
+
+[node name="Stone Bricks2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AABNAPT/AAAAAAAAAABOAPT/AAAAAAAAAABPAPT/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_p3mjm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Stone Bricks2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone Bricks2/StaticBody2D2"]
+position = Vector2(2511.5, -368)
+shape = SubResource("RectangleShape2D_y14ic")
+debug_color = Color(8.18223e-07, 0.425206, 0.498519, 0.42)
+
+[node name="Knight" parent="." instance=ExtResource("1_nev7r")]
+position = Vector2(124, 284)

@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://du6g735lsqcvf"]
+
+[ext_resource type="Texture2D" uid="uid://biiid217gcuek" path="res://Assets/asylum_demon.svg" id="1_be52c"]
+[ext_resource type="Script" uid="uid://gmjayyg1bjbe" path="res://Characters/asylum_demon.gd" id="2_qm43p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp0bb"]
+size = Vector2(123, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gio3r"]
+size = Vector2(323, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm43p"]
+size = Vector2(234, 249)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be52c"]
+size = Vector2(117, 2.5)
+
+[node name="AsylumDemon" type="RigidBody2D"]
+mass = 5000.0
+script = ExtResource("2_qm43p")
+
+[node name="AsylumDemon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_be52c")
+
+[node name="head_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="head" type="CollisionShape2D" parent="head_area"]
+position = Vector2(-28, -63)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_jp0bb")
+
+[node name="Hammer" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Hammer" type="CollisionShape2D" parent="Hammer"]
+position = Vector2(2, 11)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_gio3r")
+debug_color = Color(0.6958, 0, 0.115321, 0.42)
+
+[node name="body_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Body" type="CollisionShape2D" parent="body_area"]
+position = Vector2(-24, 19)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_qm43p")
+
+[node name="Feet" type="CollisionShape2D" parent="."]
+position = Vector2(-24, 81.25)
+shape = SubResource("RectangleShape2D_be52c")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -90.0
+offset_top = -114.0
+offset_right = 43.0
+offset_bottom = -87.0
+
+[connection signal="area_exited" from="head_area" to="AsylumDemon" method="_on_head_area_area_exited"]
+[connection signal="area_exited" from="Hammer" to="AsylumDemon" method="_on_hammer_area_exited"]
+[connection signal="body_exited" from="Hammer" to="." method="_on_hammer_body_exited"]
+[connection signal="area_exited" from="body_area" to="AsylumDemon" method="_on_body_area_area_exited"]
