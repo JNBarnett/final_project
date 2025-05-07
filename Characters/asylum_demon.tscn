@@ -7,7 +7,7 @@
 size = Vector2(123, 79)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gio3r"]
-size = Vector2(323, 52)
+size = Vector2(209.5, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm43p"]
 size = Vector2(234, 249)
@@ -25,7 +25,7 @@ texture = ExtResource("1_be52c")
 
 [node name="head_area" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 5
 
 [node name="head" type="CollisionShape2D" parent="head_area"]
 position = Vector2(-28, -63)
@@ -34,17 +34,17 @@ shape = SubResource("RectangleShape2D_jp0bb")
 
 [node name="Hammer" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 
 [node name="Hammer" type="CollisionShape2D" parent="Hammer"]
-position = Vector2(2, 11)
+position = Vector2(30.375, 11)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_gio3r")
 debug_color = Color(0.6958, 0, 0.115321, 0.42)
 
 [node name="body_area" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 5
 
 [node name="Body" type="CollisionShape2D" parent="body_area"]
 position = Vector2(-24, 19)
@@ -60,8 +60,10 @@ offset_left = -90.0
 offset_top = -114.0
 offset_right = 43.0
 offset_bottom = -87.0
+max_value = 1000.0
+step = 10.0
+show_percentage = false
 
-[connection signal="area_exited" from="head_area" to="AsylumDemon" method="_on_head_area_area_exited"]
-[connection signal="area_exited" from="Hammer" to="AsylumDemon" method="_on_hammer_area_exited"]
+[connection signal="body_exited" from="head_area" to="." method="_on_head_area_body_exited"]
 [connection signal="body_exited" from="Hammer" to="." method="_on_hammer_body_exited"]
-[connection signal="area_exited" from="body_area" to="AsylumDemon" method="_on_body_area_area_exited"]
+[connection signal="body_exited" from="body_area" to="." method="_on_body_area_body_exited"]

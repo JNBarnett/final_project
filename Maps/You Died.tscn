@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4c1cixsk3ixl"]
+
+[ext_resource type="Texture2D" uid="uid://c6ws7cs63lwr1" path="res://Assets/You Died.png" id="1_vom7y"]
+[ext_resource type="AudioStream" uid="uid://bbcwqqqbdj3qx" path="res://Audio/dark-souls-you-died-sound-effect_hm5sYFG.mp3" id="2_30r5h"]
+
+[node name="YouDied" type="Node2D"]
+
+[node name="YouDied" type="Sprite2D" parent="."]
+position = Vector2(581, 325)
+scale = Vector2(0.596875, 0.603704)
+texture = ExtResource("1_vom7y")
+
+[node name="Dark-souls-you-died-sound-effectHm5sYfg" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(574, 248)
+stream = ExtResource("2_30r5h")
+autoplay = true

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://brpoplhrql7uj"]
+
+[ext_resource type="PackedScene" uid="uid://ctim5x1x3847q" path="res://Characters/simple_knight_v1_0.tscn" id="1_iw6gr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iw6gr"]
+size = Vector2(524, 20)
+
+[node name="Victory" type="Node2D"]
+
+[node name="Knight" parent="." instance=ExtResource("1_iw6gr")]
+position = Vector2(284, -356)
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(288, 93)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iw6gr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Area2D"]
+offset_left = -192.0
+offset_top = -182.0
+offset_right = 198.0
+offset_bottom = -19.0
+text = "Congratulations! You beat the Asylum Demon, and escaped the Undead Asylum!
+
+Your journey isn't over yet, however...
+
+(Firelink Shrine and Undead Burg coming soon!)
+
+"
+horizontal_alignment = 1

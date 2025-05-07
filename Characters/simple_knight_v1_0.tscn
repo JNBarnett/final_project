@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://ctim5x1x3847q"]
+[gd_scene load_steps=48 format=3 uid="uid://ctim5x1x3847q"]
 
 [ext_resource type="Script" uid="uid://ch0ujfkuspah1" path="res://Characters/rigid_body_2d.gd" id="1_kneib"]
 [ext_resource type="Texture2D" uid="uid://bbikc3nya3rm1" path="res://Assets/simple_knight_v2.svg" id="1_tescy"]
@@ -487,27 +487,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_m25l1"]
-points = PackedVector2Array(0, -16, 15, -3, 12, -1, 15, 3, 10, 8, 7, 7, 7, 16, -8, 16, -8, 7, -12, 8, -16, 3, -13, 0, -16, -3)
-
 [node name="Knight" type="Node2D"]
 top_level = true
 
 [node name="little_knight" type="RigidBody2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -1)
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_kneib")
-jump_accel = -600.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="little_knight"]
 sprite_frames = SubResource("SpriteFrames_ls0yk")
 animation = &"All Frames"
 
-[node name="Knight_collision" type="CollisionShape2D" parent="little_knight"]
-unique_name_in_owner = true
-visible = false
-shape = SubResource("ConvexPolygonShape2D_m25l1")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="little_knight"]
+polygon = PackedVector2Array(0, -16, 15, -3, 7, 6, 7, 16, -8, 16, -8, 6, -15, -3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -1)

@@ -4,7 +4,7 @@ extends RigidBody2D
 @export var jump_accel:float = -100.0
 @onready var _animated_sprite = $AnimatedSprite2D
 
-@onready var max_hp: int = 10
+@onready var max_hp: int = 50
 @onready var damage_taken: int = 0
 @onready var hp
 	
@@ -21,10 +21,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Right"):
 		_animated_sprite.play("Walk_Right_Neutral")
 		apply_central_impulse(Vector2(acceleration,0.5))
-	elif Input.is_action_pressed("Left"):
+	if Input.is_action_pressed("Left"):
 		_animated_sprite.play("Walk_Left_Neutral")
 		apply_central_impulse((Vector2(-acceleration,0.5)))
-	elif Input.is_action_pressed("Up") and stamina >= 0:
+	if Input.is_action_pressed("Up") and stamina >= 0:
 		#_animated_sprite.play("Jump")
 		apply_central_impulse(Vector2(0, jump_accel))
 		stamina_used += 1;
@@ -47,6 +47,9 @@ func _physics_process(delta: float) -> void:
 	elif stamina_used < max_stamina:
 			acceleration = 30
 			jump_accel = -100
+
+	if damage_taken >= max_hp:
+		get_tree().change_scene_to_file("res://Maps/You Died.tscn")
 
 	var output = ""
 	output += "HP: " + str(hp) + "/" + str(max_hp) + "\n"
